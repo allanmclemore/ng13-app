@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" style="min-height: 50px;background-color: #131921;">
+    <mat-toolbar-row style="height: 50px;background-color: #131921;">
+        <img src="/assets/logo.png">
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput  placeholder="Search" value="" style="background-color: white; border: 0;">
+            </mat-form-field>
+          
+
+          </form>
+   </mat-toolbar-row>
+
+ </mat-toolbar>
+ <mat-toolbar color="primary" style="min-height: 35px;background-color: #232f3e;">
+    <mat-toolbar-row  style="height:35px;">
+
+       <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+        <mat-icon>menu</mat-icon>
+        All
+        </button>
+
+   </mat-toolbar-row>
+ </mat-toolbar>
+<mat-sidenav-container>
+    <!-- This is your sidenav -->
+    <mat-sidenav style="width: 15%" #sidenav [opened]="true" [mode]="'side'"> 
+       <mat-nav-list>
+         <a mat-list-item [routerLink]="['products']" routerLinkActive="active-list-item">
+           Products
+         </a>
+         <a mat-list-item [routerLink]="['orders']" routerLinkActive="active-list-item">
+           Orders
+         </a>
+       </mat-nav-list>
+    </mat-sidenav>
+    <!-- Content or body of your page-->
+    <mat-sidenav-content>
+        <div style="height: 90vh">
+          <router-outlet></router-outlet>
+        </div>
+     </mat-sidenav-content>
+ </mat-sidenav-container>
