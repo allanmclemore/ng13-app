@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductsViewComponent } from './products-view.component';
+import { ImgFallbackModule } from 'ngx-img-fallback';
 
 describe('ProductsViewComponent', () => {
   let component: ProductsViewComponent;

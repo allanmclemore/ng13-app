@@ -25,5 +25,4 @@ export class ProductsViewComponent implements OnInit {
   ngOnInit(): void {
    
   }
-
 }

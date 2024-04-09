@@ -9,6 +9,7 @@ import { TopSideNavLayoutComponent } from './layouts/top-side-nav-layout/top-sid
 import { OrdersViewComponent } from './views/orders-view/orders-view.component';
 import { NavbarMainComponent } from './ui/navbar-main/navbar-main.component';
 import { NavMainComponent } from './ui/nav-main/nav-main.component';
+import { ImgFallbackModule } from 'ngx-img-fallback';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavMainComponent } from './ui/nav-main/nav-main.component';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    ImgFallbackModule
   ],
   exports: [
     HeaderComponent,
