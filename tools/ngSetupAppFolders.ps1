@@ -55,19 +55,17 @@ Function main() {
         
     
         # Create directories
-        New-Item -ItemType Directory -Path "media", "src/app/layout", "src/app/modules", "src/styles", "src/styles/themes" -Force
+        New-Item -ItemType Directory -Path "media", "src/app/core", "src/app/data", "src/app/modules", "src/app/shared", "src/styles", "src/styles/themes" -Force
     
         # Run Angular generate module commands
         ng generate module Core
-        ng generate module Shared
         ng generate module Data
-        ng generate module Layout
-        ng generate component layout/MainPage
+        ng generate module Shared
 
         #  Add Angular Material UI components to app
         ng add @angular/material
-        ng generate module material
-        $pathMaterailModule = $ProjectRoot + "/src/app/material/material.module.ts"
+        ng generate module modules/material
+        $pathMaterailModule = $ProjectRoot + "/src/app/modules/material.module.ts"
         Set-Content -Path $pathMaterailModule -Value $materialModuleFileContent
     
 

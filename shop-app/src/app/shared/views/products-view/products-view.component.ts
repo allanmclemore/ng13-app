@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, Injector, OnInit } from '@angular/core';
+import { Product } from '@data/interfaces/product';
+import { ProductService} from '@shared/services/product/product.service';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-products-view',
@@ -7,9 +14,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsViewComponent implements OnInit {
 
-  constructor() { }
+  productService: ProductService;
+  products: Observable<Product[]>;
+
+  constructor(private injector: Injector) {
+    this.productService = this.injector.get(ProductService);
+    this.products = this.productService.getProducts();
+   }
 
   ngOnInit(): void {
+   
   }
 
 }

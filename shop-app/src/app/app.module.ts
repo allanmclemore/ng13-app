@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from '@modules/home/home.module';
 import { SharedModule } from '@shared/shared.module';
 import { MaterialModule } from '@modules/material/material.module';
+import { CoreModule } from '@app/core.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MaterialModule } from '@modules/material/material.module';
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
+    CoreModule,
     HomeModule,
     MaterialModule,
     SharedModule

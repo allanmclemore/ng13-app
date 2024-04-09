@@ -31,8 +31,8 @@
       "@env": [
         "src/environments/environment"
       ],
-      "@layouts/*": [
-        "src/app/layouts/*"
+      "@data/*": [
+        "src/app/data/*"
       ],
       "@modules/*": [
         "src/app/modules/*"
@@ -50,3 +50,5 @@
     "strictTemplates": true
   }
 }
+
+

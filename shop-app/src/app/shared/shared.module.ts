@@ -18,7 +18,7 @@ import { NavMainComponent } from './ui/nav-main/nav-main.component';
     TopSideNavLayoutComponent,
     OrdersViewComponent,
     NavbarMainComponent,
-    NavMainComponent
+    NavMainComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +30,7 @@ import { NavMainComponent } from './ui/nav-main/nav-main.component';
     ProductsViewComponent,
     SidenavComponent,
     TopSideNavLayoutComponent,
+    OrdersViewComponent,
   ]
 })
 export class SharedModule { }
