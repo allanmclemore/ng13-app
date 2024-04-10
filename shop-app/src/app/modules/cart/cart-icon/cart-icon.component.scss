@@ -1,0 +1,22 @@
+.cart-icon-button {
+    position: relative;
+    display: inline-flex; /* changed to inline-flex for proper alignment */
+    align-items: center; /* center the items vertically */
+  }
+  
+  .cart-item-count {
+    position: absolute;
+    top: -5px; /* adjust as needed */
+    right: 2px; /* adjust as needed */
+    background-color: red;
+    color: white;
+    border-radius: 50%; /* circular shape */
+    padding: 0 3px;
+    font-size: 0.75rem; /* smaller font size for the number */
+    height: 20px; /* fixed height for the red circle */
+    min-width: 10px; /* minimum width for the red circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #131921; /* same as toolbar background for border cut-out effect */
+  }

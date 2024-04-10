@@ -1,0 +1,6 @@
+<a href="/cart" mat-icon-button class="cart-icon-button">
+    <mat-icon aria-label="Cart">shopping_cart</mat-icon>
+    <span class="cart-item-count" *ngIf="((cartItemCount$ | async) ?? 0) > 0">
+        {{ cartItemCount$ | async }}
+    </span>
+  </a>

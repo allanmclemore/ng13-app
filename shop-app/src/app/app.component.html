@@ -1,16 +1,23 @@
-<mat-toolbar color="primary" style="min-height: 50px;background-color: #131921;">
-    <mat-toolbar-row style="height: 50px;background-color: #131921;">
-        <img src="/assets/logo.png">
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <input matInput  placeholder="Search" value="" style="background-color: white; border: 0;">
-            </mat-form-field>
-          
+<mat-toolbar color="primary" style="min-height: 50px; background-color: #131921;">
+  <mat-toolbar-row style="height: 50px; display: flex; align-items: center; justify-content: space-between;">
+      <img src="/assets/logo.png" style="height: 40px; padding-left: 10px;">
+      <form class="example-form" style="flex-grow: 1; display: flex; align-items: center; margin: 0 20px;">
+          <mat-form-field class="example-full-width" style="flex-grow: 1;">
+            <input matInput placeholder="Search" value="" style="background-color: white; border: 0; width: 100%;">
+          </mat-form-field>
+          <button mat-icon-button matSuffix type="submit" aria-label="Search">
+              <mat-icon>search</mat-icon>
+          </button>
+      </form>
+      <div style="display: flex; align-items: center;">
+        <app-cart-icon></app-cart-icon>
+          <a href="/login" style="margin-left: 10px; color: white; text-decoration: none;">
+              Login
+          </a>
+      </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-          </form>
-   </mat-toolbar-row>
-
- </mat-toolbar>
  <mat-toolbar color="primary" style="min-height: 35px;background-color: #232f3e;">
     <mat-toolbar-row  style="height:35px;">
 

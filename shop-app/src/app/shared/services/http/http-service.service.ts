@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, takeUntil } from 'rxjs/operators';
 import { environment } from '@env';
 
 import { ApiUrls } from '@core/config/api-urls';
@@ -23,6 +23,8 @@ export class HttpService {
     this.http = this.injector.get(HttpClient);
   }
 
+  private destroyed$ = new Subject();
+
   /**
    * Executes an HTTP call based on the provided method, endpoint, and data.
    *
@@ -38,22 +40,30 @@ export class HttpService {
       case ApiMethod.GET:
         response = this.http
           .get(`${url}`)
-          .pipe(catchError((err) => this.handleError(err)));
+          .pipe(
+            takeUntil(this.destroyed$),
+            catchError((err) => this.handleError(err)));
         break;
       case ApiMethod.POST:
         response = this.http
           .post(`${url}`, data)
-          .pipe(catchError((err) => this.handleError(err)));
+          .pipe(
+            takeUntil(this.destroyed$),
+            catchError((err) => this.handleError(err)));
         break;
       case ApiMethod.PUT:
         response = this.http
           .put(`${url}`, data)
-          .pipe(catchError((err) => this.handleError(err)));
+          .pipe(
+            takeUntil(this.destroyed$),
+            catchError((err) => this.handleError(err)));
         break;
       case ApiMethod.DELETE:
         response = this.http
           .delete(`${url}`)
-          .pipe(catchError((err) => this.handleError(err)));
+          .pipe(
+            takeUntil(this.destroyed$),
+            catchError((err) => this.handleError(err)));
         break;
       default:
         throw new Error('Method not supported');
@@ -61,6 +71,22 @@ export class HttpService {
 
     return response;
   }
+
+  ngOnDestroy() {
+    try{
+      this.destroyed$.next(null);
+    }
+    catch(e){
+      console.error(e);
+    }
+    
+    try{
+      this.destroyed$.complete();
+    }
+    catch(e){
+      console.error(e);
+    }
+   }
 
   /**
    * Handles errors encountered during HTTP requests.

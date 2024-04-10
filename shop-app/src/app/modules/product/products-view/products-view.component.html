@@ -1,0 +1,17 @@
+<!-- Products Heading -->
+<div class="product-gallery">
+  <div *ngFor="let product of products | async; index as i" class="product-item">
+    <div class="product-image-container">
+      <img [id]="'product_img_id' + i" [src]="product.image" src-fallback="/assets/images/no-product-image.jpg" [alt]="product.title">
+    </div>
+    <div class="product-info">
+      <div class="product-actions">
+        <button (click)="addToCart(product)">Add to Cart</button>
+        <a [href]="'product-details?id=' + product.id">View Details</a>
+      </div>
+      <h3>{{ product.title }}</h3>
+      
+    </div>
+  </div>
+</div>
+

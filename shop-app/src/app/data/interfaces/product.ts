@@ -6,5 +6,5 @@ export interface Product {
     price: number
     description: string
     category: ProductCategory
-    images: string[]
+    image: string
 }
